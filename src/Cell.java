@@ -25,10 +25,18 @@ public class Cell {
     g.setColor(Color.BLACK);
     g.drawRect(x, y, size, size);
   }
+  public void drawMouseTrail (Graphics g , Point trail , int aplha){
+    if (contains(trail)) {
+      g.setColor(new Color(0 , 0 ,255 , aplha));
+     g.fillOval(trail.x - 10, trail.y -10, 20, 20);
+     
+
+    }
+  }
 
   public boolean contains(Point p) {
     if(p != null) {
-      return x < p.x && x+size > p.x && y < p.y && y+size > p.y;
+      return (x < p.x && x+size > p.x && y < p.y && y+size > p.y);
     } else {
       return false;
     }
